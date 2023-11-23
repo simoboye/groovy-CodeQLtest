@@ -68,6 +68,13 @@ jobs:
             - uses: ./queries/queries/immutable-fields.ql
             - uses: ./queries/queries/publishment.ql
 
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'zulu'
+        java-version: ${{ matrix.java }}
+        check-latest: true
+
     # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
     # If this step fails, then you should remove it and run the build manually (see below)
     #- name: Autobuild
@@ -78,10 +85,10 @@ jobs:
 
     #   If the Autobuild fails above, remove it and uncomment the following three lines.
     #   modify them (or add more) to build your code if your project, please refer to the EXAMPLE below for guidance.
-
+    - uses: gradle/gradle-build-action@v2
     - run: |
        echo "Run, Build Application using script"
-       ./gradlew clean dist --no-build-cache
+       ./gradlew clean dist --no-build-cache --no-scan --refresh-dependencies
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
