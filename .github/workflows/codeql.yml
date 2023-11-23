@@ -72,7 +72,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         distribution: 'zulu'
-        java-version: ${{ matrix.java }}
+        java-version: '12'
         check-latest: true
 
     # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
