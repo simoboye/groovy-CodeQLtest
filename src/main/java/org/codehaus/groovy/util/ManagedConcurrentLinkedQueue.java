@@ -23,6 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import javax.annotation.concurrent.ThreadSafe;
 
 /**
  * A queue that stores values wrapped in a Reference, the type of which is
@@ -35,6 +36,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  *
  * @param <T> the type of values to store
  */
+@ThreadSafe
 public class ManagedConcurrentLinkedQueue<T> implements Iterable<T> {
 
     private final ReferenceBundle bundle;

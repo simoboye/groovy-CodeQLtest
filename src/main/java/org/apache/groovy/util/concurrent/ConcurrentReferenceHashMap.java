@@ -24,6 +24,7 @@ package org.apache.groovy.util.concurrent;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
+import javax.annotation.concurrent.ThreadSafe;
 import java.io.IOException;
 import java.io.Serializable;
 import java.lang.ref.Reference;
@@ -147,6 +148,7 @@ import java.util.function.Function;
  * @author Jason T. Greene
  */
 @SuppressWarnings("all")
+@ThreadSafe
 public class ConcurrentReferenceHashMap<K, V> extends AbstractMap<K, V> implements Serializable {
     /*
      * The basic strategy is to subdivide the table among Segments,

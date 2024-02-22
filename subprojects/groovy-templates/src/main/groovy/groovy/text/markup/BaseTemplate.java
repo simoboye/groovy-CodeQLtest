@@ -34,6 +34,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import javax.annotation.concurrent.ThreadSafe;
 
 import static groovy.xml.XmlUtil.escapeXml;
 
@@ -50,6 +51,7 @@ import static groovy.xml.XmlUtil.escapeXml;
  * configuring the base template class using the {@link groovy.text.markup.TemplateConfiguration#setBaseTemplateClass(Class)}
  * method.</p>
  */
+@ThreadSafe
 public abstract class BaseTemplate implements Writable {
     private static final Map EMPTY_MODEL = Collections.emptyMap();
 
